@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+/* styles.css */
+.navbar {
+    border-radius: 0; /* Remove any border radius to ensure the entire header has the same background color */
+  }
+  

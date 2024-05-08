@@ -1,0 +1,36 @@
+body {
+  background-color: red;
+}
+
+header {
+  background-color: white;
+  color: red;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: lightslategrey;
+  text-decoration: none;
+}
+
+.auth a {
+  color: lightslategrey;
+  text-decoration: none;
+  margin-left: 20px;
+}

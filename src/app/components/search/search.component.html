@@ -1,0 +1,34 @@
+<div class="form-container">
+  <div class="form-group">
+    <label for="fromLocation" class="label">From:</label>
+    <input class="input-field" type="text" id="fromLocation" [(ngModel)]="fromLocation" name="fromLocation" placeholder="Enter start location">
+  </div>
+  <div class="form-group">
+    <label for="toLocation" class="label">To:</label>
+    <input class="input-field" type="text" id="toLocation" [(ngModel)]="toLocation" name="toLocation" placeholder="Enter destination">
+  </div>
+  <div class="form-group">
+    <label for="date" class="label">Date:</label>
+    <input class="input-field" type="date" id="date" (change)="onDateChange($event)" [(ngModel)]="date" name="date">
+  </div>  
+  <button (click)="search()" class="search-results">Search</button>
+</div>
+
+<div *ngIf="searchResults.length > 0" class="results-container">
+  <h2>Search Results</h2>
+  <ul>
+    <li *ngFor="let result of searchResults">
+      <p>Travel Name: {{ result.name }}</p>
+      <p>Departure Time: {{ result.departureDateTime | date: 'HH:mm' }}</p>
+      <p>Arrival Time: {{ result.arrivalTime | date: 'HH:mm' }}</p>
+      <p>Fare: {{ result.fare }}</p>
+      <button class="btn-view-seats">View Seats</button>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="searchResults.length === 0" class="no-results-message">
+  <p>No buses found</p>
+</div>
+
+
