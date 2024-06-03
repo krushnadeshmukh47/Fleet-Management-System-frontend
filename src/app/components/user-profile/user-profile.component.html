@@ -1,0 +1,25 @@
+<div *ngIf="loading">Loading...</div>
+<div *ngIf="error">{{ error }}</div>
+<div *ngIf="user && !loading">
+  <h1>User Profile</h1>
+  <div>
+    <p><strong>Name:</strong> {{ user.name }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Date of Birth:</strong> {{ user.dob | date }}</p>
+    <p><strong>Contact:</strong> {{ user.contact }}</p>
+    <p><strong>Gender:</strong> {{ user.gender }}</p>
+  </div>
+  <h2>Bookings</h2>
+  <div *ngIf="user.ticket && user.ticket.length > 0">
+    <ul>
+      <li *ngFor="let ticket of user.ticket">
+        <p><strong>From:</strong> {{ ticket.from }}</p>
+        <p><strong>To:</strong> {{ ticket.to }}</p>
+        <p><strong>Date:</strong> {{ ticket.dat }}</p>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="!user.ticket || user.ticket.length === 0">
+    <p>No bookings found</p>
+  </div>
+</div>

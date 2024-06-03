@@ -35,5 +35,6 @@
       <button type="submit" class="btn btn-primary">Register</button>
     </form>
     <div *ngIf="message" class="alert alert-info">{{ message }}</div>
+    <button *ngIf="registrationSuccess" class="btn btn-success mt-3" (click)="navigateToLogin()">Go to Login</button>
   </div>
   

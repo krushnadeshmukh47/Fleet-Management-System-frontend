@@ -1,0 +1,8 @@
+<div class="ticket-container" *ngIf="ticket">
+    <h1>Your Ticket</h1>
+    <p>Bus ID: {{ ticket.busId }}</p>
+    <p>Seat Numbers: {{ ticket.seatNumbers.join(', ') }}</p>
+    <p>Amount: Rs.{{ ticket.amount }}</p>
+    <p>Booking Date: {{ getFormattedDate(ticket.bookingDate) }}</p>
+    <button (click)="downloadTicket()">Download Ticket</button>
+</div>

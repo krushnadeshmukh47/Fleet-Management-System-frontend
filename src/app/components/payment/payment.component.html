@@ -1,0 +1,10 @@
+<div class="payment-container" *ngIf="!ticket">
+    <h1>Payment for Bus Booking</h1>
+    <p>Bus ID: {{ busId }}</p>
+    <p>Selected Seats: {{ selectedSeats.join(', ') }}</p>
+    <p>Total Fare: Rs.{{ totalFare }}</p>
+    <button (click)="processPayment()">Pay Now</button>
+  </div>
+  
+  <app-ticket *ngIf="ticket" [ticket]="ticket"></app-ticket>
+  

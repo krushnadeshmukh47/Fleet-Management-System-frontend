@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BusService } from '../../bus.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -9,10 +10,10 @@ import { BusService } from '../../bus.service';
 export class SearchComponent {
   fromLocation = '';
   toLocation = '';
-  date: string | null = null; // Change the type to string
-  searchResults: any[] = []; // Using any[] instead of a specific model
+  date: string | null = null;
+  searchResults: any[] = []; 
 
-  constructor(private busService: BusService) {}
+  constructor(private busService: BusService, private router: Router) {}
 
   onDateChange(event: any) {
     // Convert the date to the required format (YYYY-MM-DD)
@@ -37,5 +38,9 @@ export class SearchComponent {
     } else {
       console.error('Invalid date:', this.date);
     }
+  }
+
+  viewSeats(busId: number) {
+    this.router.navigate(['/seats', busId]); 
   }
 }

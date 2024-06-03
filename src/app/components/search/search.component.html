@@ -22,7 +22,7 @@
       <p>Departure Time: {{ result.departureDateTime | date: 'HH:mm' }}</p>
       <p>Arrival Time: {{ result.arrivalTime | date: 'HH:mm' }}</p>
       <p>Fare: {{ result.fare }}</p>
-      <button class="btn-view-seats">View Seats</button>
+      <button class="btn-view-seats" (click)="viewSeats(result._id)">View Seats</button>
     </li>
   </ul>
 </div>
@@ -30,5 +30,3 @@
 <div *ngIf="searchResults.length === 0" class="no-results-message">
   <p>No buses found</p>
 </div>
-
-

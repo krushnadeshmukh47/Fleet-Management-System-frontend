@@ -11,7 +11,6 @@ export class RegistrationService {
   constructor(private http: HttpClient) {}
 
   register(name: string, email: string, password: string, contact: string, gender: string, dob: Date | null): Observable<any> {
-    // Construct the user registration data
     const userData = {
       name,
       email,

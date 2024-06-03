@@ -1,0 +1,22 @@
+<div class="seating-container" *ngIf="bus">
+  <h1>Select a seat for bus {{ bus.name }}</h1>
+  <div class="row">
+    <div class="seat" *ngFor="let seat of getSeats()">
+      <input
+        type="checkbox"
+        [id]="seat.number"
+        [checked]="selectedSeats.includes(seat.number)"
+        [disabled]="seat.booked"
+        (change)="toggleSeatSelection(seat.number)"
+      />
+      <label [for]="seat.number">{{ seat.number }}</label>
+      <span class="price">Rs.{{ bus.fare }}</span>
+    </div>
+  </div>
+  <div *ngIf="selectedSeats.length > 0" class="booking-summary">
+    <h2>Booking Summary</h2>
+    <p>Selected Seats: {{ selectedSeats.join(', ') }}</p>
+    <p>Total Fare: Rs.{{ totalFare }}</p>
+    <button class="confirm-btn" (click)="confirmBooking()">Confirm Booking</button>
+  </div>
+</div>

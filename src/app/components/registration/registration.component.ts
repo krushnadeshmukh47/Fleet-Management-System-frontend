@@ -17,6 +17,8 @@ export class RegistrationComponent {
   dob: Date | null = null;
 
   message: string = '';
+  registrationSuccess: boolean = false;
+
 
   constructor(private registrationService: RegistrationService, private router: Router) {} // Inject Router
 
@@ -31,11 +33,17 @@ export class RegistrationComponent {
         data => {
           console.log(data);
           this.message = 'Registration successful!';
+          this.registrationSuccess = true;
         },
         error => {
           console.log(error);
           this.message = 'Registration failed. Please try again.';
+          this.registrationSuccess = false;
         }
       );
   }
+  navigateToLogin() {
+    this.router.navigate(['/login']);
+  }
+
 }
